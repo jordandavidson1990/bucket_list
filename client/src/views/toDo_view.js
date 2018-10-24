@@ -20,6 +20,9 @@ ToDoView.prototype.render = function(toDo){
   const date = this.createDetail('Date', toDo.date);
   toDoContainer.appendChild(date);
 
+  const deleteButton = this.createDeleteButton(toDo._id);
+  toDoContainer.appendChild(deleteButton);
+
   this.container.appendChild(toDoContainer);
 }
 

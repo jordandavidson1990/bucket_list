@@ -9,7 +9,10 @@ const ToDo = function(url){
 ToDo.prototype.bindEvents = function(){
   PubSub.subscribe('ToDoView:toDo-submitted', (evt) => {
     this.postToDo(evt.detail);
-  })
+  });
+  PubSub.subscribe('ToDoView:toDo-delete-clicked', (evt) => {
+    this.deleteToDo(evt.detail);
+  });
 };
 
 ToDo.prototype.getData = function(){
@@ -28,4 +31,13 @@ ToDo.prototype.postToDo = function(toDo){
   })
   .catch(console.error);
 };
+
+ToDo.prototype.deleteToDo = function(toDoId){
+  this.request.delete(toDoId)
+  .then((toDos) =>{
+    PubSub.publish('ToDos:data-loaded', toDos);
+  })
+  .catch(console.error);
+};
+
 module.exports = ToDo;

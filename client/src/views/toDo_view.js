@@ -20,6 +20,12 @@ ToDoView.prototype.render = function(toDo){
   const date = this.createDetail('Date', toDo.date);
   toDoContainer.appendChild(date);
 
+  const completed = this.createDetail('Completed', toDo.completed);
+  toDoContainer.appendChild(completed);
+
+  const updateButton = this.createUpdateButton(toDo._id);
+  toDoContainer.appendChild(updateButton);
+
   const deleteButton = this.createDeleteButton(toDo._id);
   toDoContainer.appendChild(deleteButton);
 
@@ -45,6 +51,17 @@ ToDoView.prototype.createDeleteButton = function(toDoId){
 
   button.addEventListener('click', (evt) => {
     PubSub.publish('ToDoView:toDo-delete-clicked', evt.target.value);
+  });
+  return button;
+}
+
+ToDoView.prototype.createUpdateButton = function(toDoId){
+  const button = document.createElement('button');
+  button.classList.add('update-btn');
+  button.value = toDoId;
+
+  button.addEventListener('click', (evt) => {
+    PubSub.publish('ToDoView:toDo-update-clicked', evt.target.value);
   });
   return button;
 }

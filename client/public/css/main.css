@@ -1,0 +1,104 @@
+.delete-btn {
+  width: 40px;
+  height: 40px;
+  background: url(../images/bin.jpg);
+  background-size: 40px;
+}
+
+button.delete-btn {
+  border: none;
+  padding: 0;
+}
+
+.update-btn {
+  width: 40px;
+  height: 40px;
+  background: url(../images/update.png);
+  background-size: 40px;
+}
+
+button.update-btn {
+  border: none;
+  padding: 0;
+}
+
+body {
+  font-family: 'Square', sans-serif;
+  background: url(../images/bucket.jpeg) no-repeat center center fixed;
+  background-size: cover;
+  width: 90%,auto;
+  margin:0 auto;
+  position: relative;
+  z-index: 10;
+}
+
+.wrapper{
+  display: grid;
+  grid-template-columns: 30% 70%;
+}
+
+h1, h3{
+  color: #E8D7F1;
+  background-color: #1E3231;
+  border-radius: 2px 90%;
+  margin: auto;
+  width: 80%;
+  text-align: center;
+    box-shadow: 1px 1px 20px 2px #1E3231
+}
+h2{
+  color: #E8D7F1;
+  background-color: #1E3231;
+  border-radius: 99%;
+  margin: auto;
+  width: 80%;
+  text-align: center;
+    box-shadow: 1px 1px 20px 2px #1E3231
+}
+p{
+  color: #D3BCCC;
+  background-color: #4A306D;
+  border-radius: 1px;
+  margin: auto;
+  width: 90%;
+  text-align: center;
+  box-shadow: 1px 1px 1px 1px #A167A5
+}
+
+input[type=date], input[type=text], input[type=number]{
+  background-color: #485665;
+  border-radius: 2px;
+  padding: 2px;
+  margin:2px;
+  border-style: double;
+}
+
+input[type=submit]{
+  display: block;
+  border-color: transparent;
+  border-radius: 80%;
+  background-color: #8E7C93;
+  padding: 4px 10px 6px;
+  margin: 1em 0;
+}
+label{
+  font-family: 'Square', sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  background-color: #8E7C93;
+  border-radius: 4px;
+  border-color: transparent;
+
+}
+
+#toDos{
+  display:flex;
+  flex-wrap: wrap;
+}
+#toDo {
+  background-color: #D3BCCC;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 20px;
+  box-shadow: 1px 1px 5px 5px #A167A5;
+}

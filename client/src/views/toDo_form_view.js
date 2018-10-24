@@ -22,7 +22,8 @@ ToDoFormView.prototype.createToDo = function(form){
     activity: form.activity.value,
     location: form.location.value,
     cost: form.cost.value,
-    date: form.date.value
+    date: form.date.value,
+    completed: form.completed.value
   }
   console.log(newToDo);
   return newToDo

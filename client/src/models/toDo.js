@@ -13,6 +13,10 @@ ToDo.prototype.bindEvents = function(){
   PubSub.subscribe('ToDoView:toDo-delete-clicked', (evt) => {
     this.deleteToDo(evt.detail);
   });
+
+  PubSub.subscribe('ToDoView:toDo-submit-clicked', (evt) =>{
+    this.updateToDo(evt.detail);
+  });
 };
 
 ToDo.prototype.getData = function(){
@@ -39,5 +43,13 @@ ToDo.prototype.deleteToDo = function(toDoId){
   })
   .catch(console.error);
 };
+
+ToDo.prototype.updateToDo = function(toDoId){
+  this.request.put(toDoId)
+  .then((toDos) =>{
+    PubSub.publish('ToDos:data-loaded', toDos);
+  })
+  .catch(console.error);
+  };
 
 module.exports = ToDo;
